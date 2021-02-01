@@ -1,9 +1,9 @@
 import Documentation from '../../templates/documentation'
 
-export default function Masonry() {
+export default function Popover() {
   return (
-    <Documentation title="Masonry">
-      <h1>Masonry</h1>
+    <Documentation title="Popover">
+      <h1>Popover</h1>
       <p>
         Masonry is a grid layout that allows varying image dimensions with equal spacing. Unlike common grids,
         the rows heights.

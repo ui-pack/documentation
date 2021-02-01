@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     font-size: 1.6rem;
     line-height: 1.5;
+    color: #444;
   }
 
   a {
@@ -27,6 +28,30 @@ const GlobalStyle = createGlobalStyle`
 
   h1,h2,h3,h4,h5,h6{
     margin: 0;
+  }
+
+  h1{
+    font-size: 4.8rem;
+  }
+
+  h2{
+    font-size: 3.6rem;
+  }
+
+  h3{
+    font-size: 3.0rem;
+  }
+
+  h4{
+    font-size: 2.4rem;
+  }
+
+  h5{
+    font-size: 2.0rem;
+  }
+
+  h6{
+    font-size: 1.8rem;
   }
 `
 

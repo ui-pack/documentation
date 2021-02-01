@@ -8,12 +8,12 @@ const Container = styled.div`
   height: 100vh;
 `
 
-const Content = styled.div`
+const Content = styled.main`
   flex: 1 1 auto;
 `
 
-const Main = styled.main`
-  padding: 50px;
+const Article = styled.article`
+  padding: 50px 100px 50px 50px;
 `
 
 export default function Documentation({ title, children }) {
@@ -29,14 +29,15 @@ export default function Documentation({ title, children }) {
         <meta name="msapplication-TileColor" content="#d5f9f9" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="supported-color-schemes" content="light dark" />
+        <meta name="description" content="Secondary UI components for frontend libraries like React" />
       </Head>
       <Container>
         <Sidebar />
         <Content>
           <Header />
-          <Main>
+          <Article>
            {children}
-          </Main>
+          </Article>
         </Content>
       </Container>
     </>
