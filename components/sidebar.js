@@ -4,14 +4,17 @@ import _capitalize from 'lodash/capitalize'
 import Icon from './icon'
 
 const Wrapper = styled.div`
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 400px;
-  padding: 50px 80px;
-  background: #f9ffff;
-  box-shadow: -80px 0 40px 15px rgb(0 0 0/ .03) inset;
+  display: none;
+  @media screen and (min-width: 900px) {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 400px;
+    padding: 50px 80px;
+    background: #f9ffff;
+    box-shadow: -80px 0 40px 15px rgb(0 0 0/ .03) inset;
+  }
 `
 
 const Logo = styled.h1`

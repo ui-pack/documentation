@@ -5,8 +5,11 @@ import VisuallyHidden from './visually-hidden'
 const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
-  padding: 18px 50px;
   border-bottom: solid thin #f5f5f5;
+  padding: 18px 25px;
+  @media screen and (min-width: 900px) {
+    padding: 18px 50px;
+  }
 `
 
 const Keyboard = styled.span`
@@ -32,7 +35,8 @@ const Keyboard = styled.span`
 
 const SearchForm = styled.form`
   position: relative;
-  width: 500px;
+  width: 80%;
+  max-width: 500px;
   input{
     width: 100%;
     padding: 12px 36px;
@@ -56,6 +60,7 @@ const SearchIcon = styled.svg`
 
 const Links = styled.div`
   align-self: center;
+  padding-left: 20px;
 `
 
 export default function Header() {

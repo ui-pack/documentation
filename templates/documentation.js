@@ -4,8 +4,10 @@ import Sidebar from '../components/sidebar'
 import Header from '../components/header'
 
 const Container = styled.div`
-  display: flex;
-  height: 100vh;
+  @media screen and (min-width: 900px) {
+    display: flex;
+    height: 100vh;
+  }
 `
 
 const Content = styled.main`
@@ -13,7 +15,10 @@ const Content = styled.main`
 `
 
 const Article = styled.article`
-  padding: 50px 100px 50px 50px;
+  padding: 25px;
+  @media screen and (min-width: 900px) {
+    padding: 50px 100px 50px 50px;
+  }
 `
 
 export default function Documentation({ title, children }) {
