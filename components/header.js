@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import ColorSchemeToggle from './color-schemes'
+import VisuallyHidden from './visually-hidden'
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -8,14 +9,13 @@ const HeaderWrapper = styled.header`
   border-bottom: solid thin #f5f5f5;
 `
 
-const Keyboard = styled.kbd`
+const Keyboard = styled.span`
   position: absolute;
   top: 10px;
   right: 12px;
   padding: 4px 8px;
   border: solid thin #ececec;
   border-radius: 10px;
-  font: inherit;
   font-size: 1.4rem;
   color: #aaa;
   svg{
@@ -24,6 +24,9 @@ const Keyboard = styled.kbd`
     height: 14px;
     margin-top: -2px;
     vertical-align: middle;
+  }
+  kbd{
+    font: inherit;
   }
 `
 
@@ -64,10 +67,14 @@ export default function Header() {
           <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </SearchIcon>
         <Keyboard>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
-          </svg>
-          K
+          <kbd>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-label="Command">
+              <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+            </svg>
+          </kbd>
+          <VisuallyHidden>and</VisuallyHidden>
+          <kbd>K</kbd>
+          <VisuallyHidden>to search</VisuallyHidden>
         </Keyboard>
         <input type="search" placeholder="Search" aria-label="Search ui-pack documentation" readOnly />
       </SearchForm>

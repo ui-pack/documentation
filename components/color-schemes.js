@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 const Toggle = styled.form`
-  --toggle-bg: 189deg 98%;
+  --toggle-bg: var(--base-hue-saturation);
   --easing: 0.76, 0, 0.24, 1;
   position: relative;
   width: 50px;

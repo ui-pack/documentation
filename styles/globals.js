@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   html{
+    --base-hue: 189deg;
+    --base-saturation: 98%;
+    --base-lightness: 20%;
+    --base-hue-saturation: var(--base-hue) var(--base-saturation);
     font-size: 62.5%;
   }
   html,
