@@ -16,8 +16,10 @@ const Content = styled.main`
 
 const Article = styled.article`
   padding: 25px;
+  margin: auto;
+  max-width: 1000px;
   @media screen and (min-width: 900px) {
-    padding: 50px 100px 50px 50px;
+    padding: 50px;
   }
 `
 
