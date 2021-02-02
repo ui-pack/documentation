@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 const Vector = styled.svg`
-  width: calc(var(--width, 24) * 1px);
-  height: calc(var(--height, 24) * 1px);
-  vertical-align: var(--verticalAlign, middle);
+  display: var(--icon-display, inline-block);
+  width: calc(var(--icon-width, 24) * 1px);
+  height: calc(var(--icon-height, 24) * 1px);
+  vertical-align: var(--icon-verticalAlign, middle);
 `
 
 export default function Icon({

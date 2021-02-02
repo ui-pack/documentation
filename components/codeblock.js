@@ -1,7 +1,7 @@
-import Highlight, {defaultProps} from 'prism-react-renderer'
+import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from "prism-react-renderer/themes/nightOwl";
-import {LiveProvider, LiveEditor, LiveError, LivePreview} from 'react-live'
-import {mdx} from '@mdx-js/react'
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
+import { mdx } from '@mdx-js/react'
 
 export default function code({children, className = '', live, render}) {
   const language = className.replace(/language-/, '')
