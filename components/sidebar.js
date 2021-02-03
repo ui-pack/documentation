@@ -6,24 +6,24 @@ import { InlineSpacer } from './spacer'
 import { Logo } from './brand'
 
 const Wrapper = styled.div`
-  order: 2;
-  position: absolute;
+  position: fixed;
   left: 100vw;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  width: 400px;
-  padding: 50px 80px;
+  width: calc(var(--mobile-nav-offset) * -1);
+  padding: 25px;
   background: #f9ffff;
   transition: transform .5s var(--base-easing);
+  box-shadow: 80px 0 40px 15px rgb(0 0 0/ .03) inset;
   .menu-nav &{
     transform: translateX(var(--mobile-nav-offset));
-    box-shadow: 80px 0 40px 15px rgb(0 0 0/ .03) inset;
   }
   @media screen and (min-width: 900px) {
     position: static;
-    order: 1;
     align-self: stretch;
+    width: 400px;
+    padding: 50px 80px;
     box-shadow: -80px 0 40px 15px rgb(0 0 0/ .03) inset;
     transform: none;
   }

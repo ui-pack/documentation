@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     --base-lightness: 20%;
     --base-hue-saturation: var(--base-hue) var(--base-saturation);
     --base-easing: cubic-bezier(.5, 0, .5, 1);
-    --mobile-nav-offset: -400px;
+    --mobile-nav-offset: -70vw;
     font-size: 62.5%;
   }
   html,
