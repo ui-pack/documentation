@@ -6,6 +6,8 @@ const GlobalStyle = createGlobalStyle`
     --base-saturation: 98%;
     --base-lightness: 20%;
     --base-hue-saturation: var(--base-hue) var(--base-saturation);
+    --base-easing: cubic-bezier(.5, 0, .5, 1);
+    --mobile-nav-offset: -400px;
     font-size: 62.5%;
   }
   html,
@@ -28,9 +30,6 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-  }
-
-  h1,h2,h3,h4,h5,h6,p{
     margin: 0;
   }
 

@@ -35,7 +35,7 @@ export default function code({children, className = '', live, render}) {
   return (
     <Highlight {...defaultProps} code={children.trim()} language={language} theme={theme}>
       {({className, style, tokens, getLineProps, getTokenProps}) => (
-        <pre className={className} style={{...style, padding: '20px', borderRadius: '10px'}}>
+        <pre className={className} style={{...style, padding: '20px', borderRadius: '10px', overflow: 'auto'}}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({line, key: i})}>
               {line.map((token, key) => (

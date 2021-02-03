@@ -7,8 +7,10 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   border-bottom: solid thin #f5f5f5;
   padding: 18px 25px;
+  background: hsl(var(--base-hue) 40% 97%);
   @media screen and (min-width: 900px) {
     padding: 18px 50px;
+    background: none;
   }
 `
 

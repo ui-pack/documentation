@@ -3,30 +3,30 @@ import styled from 'styled-components'
 import _capitalize from 'lodash/capitalize'
 import Icon from './icon'
 import { InlineSpacer } from './spacer'
+import { Logo } from './brand'
 
 const Wrapper = styled.div`
-  display: none;
-  @media screen and (min-width: 900px) {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: 400px;
-    padding: 50px 80px;
-    background: #f9ffff;
-    box-shadow: -80px 0 40px 15px rgb(0 0 0/ .03) inset;
+  order: 2;
+  position: absolute;
+  left: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 400px;
+  padding: 50px 80px;
+  background: #f9ffff;
+  transition: transform .5s var(--base-easing);
+  .menu-nav &{
+    transform: translateX(var(--mobile-nav-offset));
+    box-shadow: 80px 0 40px 15px rgb(0 0 0/ .03) inset;
   }
-`
-
-const Logo = styled.h1`
-  width: 120px;
-  height: 40px;
-  margin-left: -5px;
-  background-image: url(/ui-pack-named.svg);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  text-indent: -1000px;
-  overflow: hidden;
+  @media screen and (min-width: 900px) {
+    position: static;
+    order: 1;
+    align-self: stretch;
+    box-shadow: -80px 0 40px 15px rgb(0 0 0/ .03) inset;
+    transform: none;
+  }
 `
 
 const Navigation = styled.nav`
@@ -88,7 +88,7 @@ export default function Sidebar() {
   return (
     <Wrapper>
       <a href="/">
-        <Logo>ui-pack</Logo>
+        <Logo />
       </a>
       <Navigation>
         {
