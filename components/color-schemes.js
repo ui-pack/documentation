@@ -23,10 +23,13 @@ const Toggle = styled.form`
     background-color: hsl(var(--toggle-bg) 30%);
     color: transparent;
     cursor: pointer;
+    border-radius: 30px;
   }
   input{
     position: absolute;
     left: -100px;
+    z-index: -10;
+    opacity: 0;
     &:checked + label{
       background-color: hsl(var(--toggle-bg) 90%);
     }
