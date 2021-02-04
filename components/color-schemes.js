@@ -10,6 +10,7 @@ const Toggle = styled.form`
   padding: 3px 5px;
   border: solid thin hsl(var(--toggle-bg) 30%);
   border-radius: 30px;
+  background-color: hsl(var(--toggle-bg) 30%);
   cursor: pointer;
   overflow: hidden;
   text-align: right;
@@ -48,7 +49,7 @@ const Toggle = styled.form`
     display: inline-block;
     width: 22px;
     height: 22px;
-    background: #fff;
+    background: var(--base-background-color);
     pointer-events: none;
     border-radius: 50%;
     transition: transform .2s cubic-bezier(var(--easing));

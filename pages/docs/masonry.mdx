@@ -6,38 +6,24 @@ import { Spacer } from '../../components/spacer'
 
 # Masonry
 
-<Spacer axis="vertical" size={10} />
-
 Masonry is a grid layout that allows varying image dimensions with equal spacing. Unlike common grids,
 the rows are not confined to fixed heights. Simpler implementations of this layout like the
 [CSS multi-column layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns) flows on a
 column-by-column basis. However, this has a sinistrodextral flow (left-to-right) by rows.
 
-<Spacer axis="vertical" size={30} />
-
 ## Usage
 
-<Spacer axis="vertical" size={10} />
-
 Component modules can be individually imported
-
-<Spacer axis="vertical" size={15} />
 
 ```jsx
 import Masonry from '@ui-pack/react/masonry'
 ```
 
-<Spacer axis="vertical" size={15} />
-
 or you may import the component from the index module that contains all other components.
-
-<Spacer axis="vertical" size={15} />
 
 ```jsx
 import { Masonry } from '@ui-pack/react'
 ```
-
-<Spacer axis="vertical" size={15} />
 
 > Note this is not recommended in most cases as it can lead to larger bundle sizes
 

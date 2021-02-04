@@ -18,12 +18,20 @@ const Content = styled.main`
   .menu-nav &{
     transform: translateX(var(--mobile-nav-offset));
   }
+  @media screen and (min-width: 900px){
+    .menu-nav &{
+      transform: none;
+    }
+  }
 `
 
 const Article = styled.article`
   padding: 25px;
   margin: auto;
   max-width: 1000px;
+  h1, h2, h3, h4, h5, h6, p{
+    margin: 12px 0;
+  }
   @media screen and (min-width: 900px) {
     padding: 50px;
   }

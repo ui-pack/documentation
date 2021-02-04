@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import _capitalize from 'lodash/capitalize'
 import Icon from './icon'
-import { InlineSpacer } from './spacer'
+import Link from './link'
+import Button from './button'
+import { InlineSpacer, Spacer } from './spacer'
 import { Logo } from './brand'
 
 const Wrapper = styled.div`
@@ -13,7 +15,7 @@ const Wrapper = styled.div`
   min-height: 100vh;
   width: calc(var(--mobile-nav-offset) * -1);
   padding: 25px;
-  background: #f9ffff;
+  background: hsl(var(--base-hue-saturation) 99%);
   transition: transform .5s var(--base-easing);
   box-shadow: 80px 0 40px 15px rgb(0 0 0/ .03) inset;
   .menu-nav &{
@@ -21,11 +23,23 @@ const Wrapper = styled.div`
   }
   @media screen and (min-width: 900px) {
     position: static;
-    align-self: stretch;
     width: 400px;
     padding: 50px 80px;
     box-shadow: -80px 0 40px 15px rgb(0 0 0/ .03) inset;
-    transform: none;
+    .menu-nav &{
+      transform: none;
+    }
+  }
+`
+
+const Header = styled.header`
+  --link-display: inline-flex;
+  --icon-stroke: hsl(var(--base-hue) 30% 70%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (min-width: 900px) {
+    --button-opacity: 0;
   }
 `
 
@@ -33,12 +47,12 @@ const Navigation = styled.nav`
   --icon-width: 18;
   --icon-height: 18;
   flex: 1;
-  margin-top: 60px;
-  > a{
-    display: block;
-    margin-bottom: 10px;
-    padding: 5px 0;
-  }
+  display: grid;
+  ${({ linkCount }) => linkCount && css`
+    grid-template-rows: repeat(${linkCount}, 30px);
+  `}
+  align-items: center;
+  gap: 20px;
   [aria-current]{
     color: hsl(189deg 98% 20%);
   }
@@ -52,8 +66,12 @@ const Footer = styled.footer`
   padding: 15px 0;
   border-top: solid thin hsl(var(--base-hue) 70% 90%);
   color: hsl(var(--base-hue) 40% 70%);
+  span:first-of-type{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+  }
   a{
-    margin-right: 15px;
     color: hsl(var(--base-hue-saturation) 35%);
   }
 `
@@ -85,19 +103,30 @@ const pages = [
 export default function Sidebar() {
   const router = useRouter()
   const isCurrent = page => router.pathname.includes(page) ? 'page' : null
+  const toggleMenu = () => {
+    document.body.classList.toggle('menu-nav')
+  }
   return (
     <Wrapper>
-      <a href="/">
-        <Logo />
-      </a>
-      <Navigation>
+      <Header>
+        <Link href="/">
+          <Logo />
+        </Link>
+        <Button onClick={toggleMenu}>
+          <Icon>
+            <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+          </Icon>
+        </Button>
+      </Header>
+      <Spacer axis="vertical" size={60} />
+      <Navigation linkCount={pages.length}>
         {
           pages.map(page => (
-            <a href={`/docs/${page}`} aria-current={isCurrent(page)} key={page}>
+            <Link href={`/docs/${page}`} aria-current={isCurrent(page)} key={page}>
               {icons[page]()}
               <InlineSpacer axis="horizontal" size={8} />
               {_capitalize(page.replace('-', ' '))}
-            </a>
+            </Link>
           ))
         }
       </Navigation>

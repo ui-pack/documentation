@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import ColorSchemeToggle from './color-schemes'
 import VisuallyHidden from './visually-hidden'
+import Icon from './icon'
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -15,6 +16,8 @@ const HeaderWrapper = styled.header`
 `
 
 const Keyboard = styled.span`
+  --icon-width: 14;
+  --icon-height: 14;
   position: absolute;
   top: 10px;
   right: 12px;
@@ -23,13 +26,6 @@ const Keyboard = styled.span`
   border-radius: 10px;
   font-size: 1.4rem;
   color: #aaa;
-  svg{
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    margin-top: -2px;
-    vertical-align: middle;
-  }
   kbd{
     font: inherit;
   }
@@ -43,9 +39,9 @@ const SearchForm = styled.form`
     width: 100%;
     padding: 12px 36px;
     border: solid thin #f0f0f0;
-    border-radius: 10px;
+    border-radius: var(--base-curve);
     box-shadow: 0 2px 8px rgb(0 0 0/.04);
-    outline-color: #b3e6e6;
+    outline-color: var(--base-outline-color);
     font: inherit;
   }
 `
@@ -75,9 +71,9 @@ export default function Header() {
         </SearchIcon>
         <Keyboard>
           <kbd>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-label="Command">
+            <Icon viewBox="0 0 27 27" aria-label="Command">
               <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
-            </svg>
+            </Icon>
           </kbd>
           <VisuallyHidden>and</VisuallyHidden>
           <kbd>K</kbd>
