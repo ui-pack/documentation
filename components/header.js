@@ -79,7 +79,7 @@ export default function Header() {
           <kbd>K</kbd>
           <VisuallyHidden>to search</VisuallyHidden>
         </Keyboard>
-        <input type="search" placeholder="Search" aria-label="Search ui-pack documentation" readOnly />
+        <input type="search" placeholder="Search" id="searchInput" aria-label="Search ui-pack documentation" readOnly />
       </SearchForm>
       <Links>
         <ColorSchemeToggle />
