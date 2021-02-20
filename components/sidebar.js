@@ -18,6 +18,9 @@ const Wrapper = styled.div`
   background: hsl(var(--base-hue-saturation) 99%);
   transition: transform .5s var(--base-easing);
   box-shadow: 80px 0 40px 15px rgb(0 0 0/ .03) inset;
+  .dark &{
+    background: hsl(var(--base-hue) 10% 11.5%);
+  }
   .menu-nav &{
     transform: translateX(var(--mobile-nav-offset));
   }
@@ -54,7 +57,7 @@ const Navigation = styled.nav`
   align-items: center;
   gap: 20px;
   [aria-current]{
-    color: hsl(189deg 98% 20%);
+    color: hsl(189deg 98% 30%);
   }
 `
 
@@ -73,6 +76,9 @@ const Footer = styled.footer`
   }
   a{
     color: hsl(var(--base-hue-saturation) 35%);
+  }
+  .dark &{
+    border-top: solid thin hsl(var(--base-hue) 70% 20%);
   }
 `
 

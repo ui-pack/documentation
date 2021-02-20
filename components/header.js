@@ -6,12 +6,17 @@ import Icon from './icon'
 const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
-  border-bottom: solid thin #f5f5f5;
+  border-bottom: solid thin var(--base-border-color);
   padding: 18px 25px;
   background: hsl(var(--base-hue) 40% 97%);
+  .dark &{
+    background: hsl(var(--base-hue) 40% 7%);
+  }
   @media screen and (min-width: 900px) {
     padding: 18px 50px;
-    background: none;
+    && {
+      background: none;
+    }
   }
 `
 
@@ -22,10 +27,10 @@ const Keyboard = styled.span`
   top: 10px;
   right: 12px;
   padding: 4px 8px;
-  border: solid thin #ececec;
+  border: solid thin var(--base-border-color);
   border-radius: 10px;
   font-size: 1.4rem;
-  color: #aaa;
+  color: hsl(var(--base-foreground-hsl)/ .4);
   kbd{
     font: inherit;
   }
@@ -38,9 +43,11 @@ const SearchForm = styled.form`
   input{
     width: 100%;
     padding: 12px 36px;
-    border: solid thin #f0f0f0;
+    border: solid thin var(--base-border-color);
     border-radius: var(--base-curve);
-    box-shadow: 0 2px 8px rgb(0 0 0/.04);
+    box-shadow: var(--base-shadow);
+    background: var(--base-background-color);
+    color: var(--base-foreground-color);
     outline-color: var(--base-outline-color);
     font: inherit;
   }

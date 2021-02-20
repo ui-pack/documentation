@@ -70,36 +70,47 @@ const Toggle = styled.form`
   }
 `
 
-export default function ColorSchemeToggle() {
-  // const matchMedia = window.matchMedia('(prefers-color-scheme: dark)')
-  // const [check, setCheck] = React.useState(matchMedia.matches)
-  const toggleColorScheme = event => {
-    // const { target: { checked } } = event
-    // setCheck(checked)
-    // localStorage.setItem('color-scheme', checked ? 'dark' : 'light')
+const w = typeof window !== 'undefined' ? window : {
+  matchMedia: () => ({matches: false}),
+  localStorage: {
+    setItem: () => null,
+    getItem: () => null
   }
-  // React.useEffect(() => {
-  //   const storedTheme = localStorage.getItem('color-scheme')
-  //   if (storedTheme) {
-  //     document.body.classList.toggle('dark', storedTheme === 'dark')
-  //     setCheck(storedTheme === 'dark')
-  //   } else {
-  //     document.body.classList.toggle('dark', check)
-  //   }
-  //   const toggleHandler = event => {
-  //     document.body.classList.toggle('dark', event.matches)
-  //     localStorage.removeItem('color-scheme')
-  //     setCheck(event.matches)
-  //   }
-  //   matchMedia.addListener(toggleHandler)
-  //   return () => {
-  //     matchMedia.removeListener(toggleHandler)
-  //   }
-  // }, [check, matchMedia])
+}
+
+export default function ColorSchemeToggle() {
+  const matchMedia = w.matchMedia('(prefers-color-scheme: dark)')
+  const [check, setCheck] = React.useState(matchMedia.matches)
+
+  const toggleColorScheme = event => {
+    const { target: { checked } } = event
+    setCheck(checked)
+    w.localStorage.setItem('color-scheme', checked ? 'dark' : 'light')
+  }
+
+  React.useEffect(() => {
+    const storedTheme = w.localStorage.getItem('color-scheme')
+    if (storedTheme) {
+      document.body.classList.toggle('dark', storedTheme === 'dark')
+      setCheck(storedTheme === 'dark')
+    } else {
+      document.body.classList.toggle('dark', check)
+    }
+    const toggleHandler = event => {
+      document.body.classList.toggle('dark', event.matches)
+      w.localStorage.removeItem('color-scheme')
+      setCheck(event.matches)
+    }
+
+    matchMedia.addListener(toggleHandler)
+    return () => {
+      matchMedia.removeListener(toggleHandler)
+    }
+  }, [check, matchMedia])
 
   return (
     <Toggle>
-      <input type="checkbox" id="toggler" onChange={toggleColorScheme} />
+      <input type="checkbox" id="toggler" defaultChecked={check} onChange={toggleColorScheme} />
       <label htmlFor="toggler" title="Change theme">toggle</label>
       <span />
     </Toggle>

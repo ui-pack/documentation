@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
     const searchInputSelector = '#searchInput'
     if(document.querySelector(searchInputSelector)) {
       docsearch({
-        container: '#searchInput',
+        container: searchInputSelector,
         indexName: 'ui-pack',
         apiKey: '0a50a26d063f09be4c897bb988dd46a9'
       })
