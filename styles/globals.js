@@ -13,15 +13,15 @@ const GlobalStyle = createGlobalStyle`
     --base-outline-color: hsl(var(--base-hue-saturation) 85%);
     --base-background-hsl: 0deg 0% 100%;
     --base-foreground-hsl: 0deg 100% 0%;
-    --base-background-color: hsl(0deg 0% 100%);
-    --base-foreground-color: hsl(0deg 100% 0%);
+    --base-background-color: hsl(var(--base-background-hsl));
+    --base-foreground-color: hsl(var(--base-foreground-hsl));
     --base-border-color: hsl(0deg 0% 96%);
     --base-shadow: 0 2px 8px hsl(0deg 100% 0%/.04);
     .dark{
       --base-background-hsl: 184deg 8% 12%;
-      --base-foreground-hsl: 0deg 0% 100%;
-      --base-background-color: hsl(184deg 8% 12%);
-      --base-foreground-color: hsl(0deg 0% 100%);
+      --base-foreground-hsl: 0deg 0% 85%;
+      --base-background-color: hsl(var(--base-background-hsl));
+      --base-foreground-color: hsl(var(--base-foreground-hsl));
       --base-border-color: hsl(0deg 0% 22%);
       --base-shadow: 0 2px 8px hsl(0deg 0% 85%/.04);
     }

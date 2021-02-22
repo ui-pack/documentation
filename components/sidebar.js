@@ -44,6 +44,31 @@ const Header = styled.header`
   @media screen and (min-width: 900px) {
     --button-opacity: 0;
   }
+  button{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    &::after{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      transform: scale(.3);
+      opacity: 0;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background: rgb(200,200,200,.2);
+      transition: transform .3s var(--base-easing), opacity .3s linear;
+    }
+    &:hover ::after{
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 `
 
 const Navigation = styled.nav`
