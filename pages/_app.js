@@ -1,7 +1,9 @@
-import { useEffect } from 'react'
+import * as React from 'react'
+import Head from 'next/head'
 import { MDXProvider } from '@mdx-js/react'
-import docsearch from '@docsearch/js'
+// import docsearch from '@docsearch/js'
 import GlobalStyle from '../styles/globals'
+import ThirdPartyStyle from '../styles/third-party'
 import code from '../components/codeblock'
 
 const components = {
@@ -9,10 +11,10 @@ const components = {
 }
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    const searchInputSelector = '#searchInput'
-    if(document.querySelector(searchInputSelector)) {
-      docsearch({
+  React.useEffect(() => {
+    const searchInputSelector = '#docsearch'
+    if(window.docsearch && document.querySelector(searchInputSelector)) {
+      window.docsearch({
         container: searchInputSelector,
         indexName: 'ui-pack',
         apiKey: '0a50a26d063f09be4c897bb988dd46a9'
@@ -21,7 +23,12 @@ function MyApp({ Component, pageProps }) {
   }, [])
   return (
     <MDXProvider components={components}>
+      <Head>
+        <link rel="stylesheet" href="https://unpkg.com/@docsearch/css" />
+        <script src="https://unpkg.com/@docsearch/js"></script>
+      </Head>
       <GlobalStyle />
+      <ThirdPartyStyle />
       <Component {...pageProps} />
     </MDXProvider>
   )

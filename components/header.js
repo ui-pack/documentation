@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 import ColorSchemeToggle from './color-schemes'
-import VisuallyHidden from './visually-hidden'
-import Icon from './icon'
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -20,49 +18,6 @@ const HeaderWrapper = styled.header`
   }
 `
 
-const Keyboard = styled.span`
-  --icon-width: 14;
-  --icon-height: 14;
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  padding: 4px 8px;
-  border: solid thin var(--base-border-color);
-  border-radius: 10px;
-  font-size: 1.4rem;
-  color: hsl(var(--base-foreground-hsl)/ .4);
-  kbd{
-    font: inherit;
-  }
-`
-
-const SearchForm = styled.form`
-  position: relative;
-  width: 80%;
-  max-width: 500px;
-  input{
-    width: 100%;
-    padding: 12px 36px;
-    border: solid thin var(--base-border-color);
-    border-radius: var(--base-curve);
-    box-shadow: var(--base-shadow);
-    background: var(--base-background-color);
-    color: var(--base-foreground-color);
-    outline-color: var(--base-outline-color);
-    font: inherit;
-  }
-`
-
-const SearchIcon = styled.svg`
-  position: absolute;
-  top: 15px;
-  left: 12px;
-  color: #aaa;
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-`
-
 const Links = styled.div`
   align-self: center;
   padding-left: 20px;
@@ -71,23 +26,7 @@ const Links = styled.div`
 export default function Header() {
   return (
     <HeaderWrapper>
-      <SearchForm>
-        <SearchIcon xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="11" cy="11" r="8" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </SearchIcon>
-        <Keyboard>
-          <kbd>
-            <Icon viewBox="0 0 27 27" aria-label="Command">
-              <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
-            </Icon>
-          </kbd>
-          <VisuallyHidden>and</VisuallyHidden>
-          <kbd>K</kbd>
-          <VisuallyHidden>to search</VisuallyHidden>
-        </Keyboard>
-        <input type="search" placeholder="Search" id="searchInput" aria-label="Search ui-pack documentation" />
-      </SearchForm>
+      <div id="docsearch" className="DocSearch" />
       <Links>
         <ColorSchemeToggle />
       </Links>
