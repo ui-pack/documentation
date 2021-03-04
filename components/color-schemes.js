@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Head from 'next/head'
 import styled from 'styled-components'
 
 const Toggle = styled.form`
@@ -89,18 +90,13 @@ export default function ColorSchemeToggle() {
   const toggleColorScheme = event => {
     const { target: { checked } } = event
     setCheck(checked)
+    document.documentElement.classList.toggle('dark', !check)
     w.localStorage.setItem('color-scheme', checked ? 'dark' : 'light')
   }
 
   React.useEffect(() => {
-    if (storedTheme) {
-      document.body.classList.toggle('dark', isDark)
-    } else {
-      document.body.classList.toggle('dark', check)
-    }
-
     const toggleHandler = event => {
-      document.body.classList.toggle('dark', event.matches)
+      document.documentElement.classList.toggle('dark', event.matches)
       w.localStorage.removeItem('color-scheme')
       setCheck(event.matches)
     }
@@ -112,10 +108,21 @@ export default function ColorSchemeToggle() {
   }, [matchMedia])
 
   return (
-    <Toggle>
-      <input type="checkbox" id="toggler" defaultChecked={check} onInput={toggleColorScheme} />
-      <label htmlFor="toggler" title="Change theme">toggle</label>
-      <span />
-    </Toggle>
+    <>
+      <Head>
+        <script dangerouslySetInnerHTML={{ __html: `
+          const themePref = window.localStorage.getItem('color-scheme')
+          const themeDefault = window.matchMedia('(prefers-color-scheme: dark)')
+          if (themePref || themeDefault) {
+            document.documentElement.classList.toggle('dark', themePref ? themePref === 'dark' : themeDefault.matches)
+          }
+        ` }} />
+      </Head>
+      <Toggle>
+        <input type="checkbox" id="toggler" defaultChecked={check} onInput={toggleColorScheme} />
+        <label htmlFor="toggler" title="Change theme">toggle</label>
+        <span />
+      </Toggle>
+    </>
   )
 }

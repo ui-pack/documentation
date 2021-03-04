@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     --base-foreground-color: hsl(var(--base-foreground-hsl));
     --base-border-color: var(--color-gray-100);
     --base-shadow: 0 2px 8px hsl(0deg 100% 0%/.04);
-    .dark{
+    &.dark{
       --base-background-hue: 184deg;
       --base-background-hue-saturation: 184deg 8%;
       --base-background-hsl: 184deg 8% 12%;
