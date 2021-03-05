@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   box-shadow: 80px 0 40px 15px rgb(0 0 0/ .03) inset;
   .dark &{
     background: hsl(var(--base-hue) 10% 11.5%);
-    box-shadow: 80px 0 40px 15px hsl(var(--base-hue) 10% 5%/ .03) inset;
+    box-shadow: 80px 0 40px 15px 10px hsl(var(--base-hue) 10% 5%/ .03) inset;
   }
   .menu-nav &{
     transform: translateX(var(--mobile-nav-offset));
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
       transform: none;
     }
     .dark &{
-      box-shadow: -80px 0 40px 15px hsl(var(--base-hue) 10% 5%/ .03) inset;
+      box-shadow: -80px 0 40px 15px 10px hsl(var(--base-hue) 10% 5%/ .03) inset;
     }
   }
 `

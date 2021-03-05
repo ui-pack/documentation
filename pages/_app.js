@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
 import { MDXProvider } from '@mdx-js/react'
-// import docsearch from '@docsearch/js'
 import GlobalStyle from '../styles/globals'
 import ThirdPartyStyle from '../styles/third-party'
 import code from '../components/codeblock'

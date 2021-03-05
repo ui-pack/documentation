@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 const ThirdPartyStyle = createGlobalStyle`
-  body{
+  html.ui-pack{
     --docsearch-primary-color: var(--base-color);
     --docsearch-searchbox-background: var(--base-background-color);
     --docsearch-searchbox-focus-background: var(--base-background-color);

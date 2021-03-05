@@ -1,5 +1,5 @@
 {
-  "name": "documentation",
+  "name": "uipack-documentation",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,10 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
-    "@docsearch/js": "^3.0.0-alpha.33",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-syntax-jsx": "^7.12.1",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.6",
-    "@ui-pack/react": "0.0.3",
+    "@ui-pack/react": "^0.0.5",
     "lodash": "^4.17.20",
     "next": "10.0.5",
     "prism-react-renderer": "^1.1.1",

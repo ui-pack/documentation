@@ -21,8 +21,25 @@ import Masonry from '@ui-pack/react/masonry'
 
 or you may import the component from the index module that contains all other components.
 
-```jsx
-import { Masonry } from '@ui-pack/react'
+```jsx live=true
+function App(){
+  const items = [
+    'm/200/120',
+    'a/200/170',
+    's/220/150',
+    'o/180/90',
+    'n/200/230',
+    'r/250/200',
+    'y/260/220',
+  ]
+  return (
+    <Masonry columns="3" gap="10px">
+      {items.map(item => (
+        <Image key={item} src={`https://picsum.photos/seed/${item}`} alt="" />
+      ))}
+    </Masonry>
+  )
+}
 ```
 
 > Note this is not recommended in most cases as it can lead to larger bundle sizes

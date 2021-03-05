@@ -13,8 +13,10 @@ const Container = styled.div`
 `
 
 const Content = styled.main`
+  height: 100vh;
   flex: 1 1 auto;
   transition: transform .5s var(--base-easing);
+  overflow-y: auto;
   .menu-nav &{
     transform: translateX(var(--mobile-nav-offset));
   }

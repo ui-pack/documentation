@@ -113,6 +113,7 @@ export default function ColorSchemeToggle() {
         <script dangerouslySetInnerHTML={{ __html: `
           const themePref = window.localStorage.getItem('color-scheme')
           const themeDefault = window.matchMedia('(prefers-color-scheme: dark)')
+          document.documentElement.classList.add('ui-pack')
           if (themePref || themeDefault) {
             document.documentElement.classList.toggle('dark', themePref ? themePref === 'dark' : themeDefault.matches)
           }

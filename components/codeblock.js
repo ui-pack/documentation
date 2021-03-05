@@ -2,20 +2,56 @@ import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from "prism-react-renderer/themes/nightOwl";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { mdx } from '@mdx-js/react'
+import styled from 'styled-components'
+import { transformSync } from '@babel/core'
+import Masonry from '@ui-pack/react/masonry'
+
+const Image = styled.img`
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+`
+
+const scope = {
+  mdx,
+  Masonry,
+  Image
+}
 
 export default function code({children, className = '', live, render}) {
   const language = className.replace(/language-/, '')
 
   if (live) {
     return (
-      <div style={{marginTop: '40px', backgroundColor: 'black'}}>
+      <div style={{ borderRadius: 'var(--base-curve)', overflow: 'hidden' }}>
         <LiveProvider
           code={children.trim()}
-          transformCode={code => '/** @jsx mdx */' + code}
-          scope={{mdx}}
+          theme={theme}
+          disabled
+          transformCode={code => {
+            const transformed = transformSync(code, {
+              plugins: [
+                require('@babel/plugin-syntax-jsx')
+              ]
+            }).code
+            return transformed
+          }}
+          scope={scope}
         >
-          <LivePreview />
-          <LiveEditor />
+          <LivePreview
+            style={{
+              borderRadius: 'var(--base-curve) var(--base-curve) 0 0',
+              padding: '20px',
+              border: 'solid thin var(--base-border-color)',
+              borderBottom: 0
+            }}
+          />
+          <LiveEditor
+            style={{
+              borderRadius: '0 0 var(--base-curve) var(--base-curve)',
+              padding: '20px'
+            }}
+          />
           <LiveError />
         </LiveProvider>
       </div>
