@@ -3,9 +3,19 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   html{
     font-size: 62.5%;
-    --color-gray-100: hsl(0deg 0% 96%);
-    --color-gray-200: hsl(0deg 0% 92%);
-    --color-gray-600: hsl(0deg 0% 22%);
+    --color-info: hsl(156deg 72% 67%);
+    --color-warn: hsl(46deg 97% 65%);
+    --color-error: hsl(0deg 94% 82%);
+    --color-gray-50: 210deg 20% 98%;
+    --color-gray-100: 220deg 14% 96%;
+    --color-gray-200: 220deg 13% 91%;
+    --color-gray-300: 216deg 12% 84%;
+    --color-gray-400: 218deg 11% 65%;
+    --color-gray-500: 220deg 9% 46%;
+    --color-gray-600: 215deg 14% 34%;
+    --color-gray-700: 217deg 19% 27%;
+    --color-gray-800: 215deg 28% 17%;
+    --color-gray-900: 221deg 39% 11%;
     --base-font: 1.6rem/1.5 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     --mobile-nav-offset: -70vw;
@@ -23,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
     --base-foreground-hsl: 0deg 100% 0%;
     --base-background-color: hsl(var(--base-background-hsl));
     --base-foreground-color: hsl(var(--base-foreground-hsl));
-    --base-border-color: var(--color-gray-100);
+    --base-border-color: hsl(var(--color-gray-100));
     --base-shadow: 0 2px 8px hsl(0deg 100% 0%/.04);
     &.dark{
       --base-background-hue: 184deg;
@@ -33,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
       --base-background-color: hsl(var(--base-background-hsl));
       --base-foreground-color: hsl(var(--base-foreground-hsl));
       --base-border-color: hsl(0deg 0% 22%);
-      --base-shadow: 0 2px 8px hsl(0deg 0% 85%/.04);
+      --base-shadow: 0 2px 4px hsl(0deg 0% 85%/.02);
     }
   }
   html,
@@ -57,6 +67,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+  }
   h1{
     font-size: 4.8rem;
   }

@@ -9,6 +9,8 @@ const LogoStyle = styled.h1`
   background-image: url(/ui-pack-named.svg);
   background-size: 100%;
   background-repeat: no-repeat;
+  color: var(--base-foreground-color);
+  fill: #f00;
 `
 
 export const Logo = () => (

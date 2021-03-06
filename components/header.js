@@ -13,7 +13,11 @@ const HeaderWrapper = styled.header`
   @media screen and (min-width: 900px) {
     padding: 18px 50px;
     && {
-      background: none;
+      position: sticky;
+      top: 0;
+      background: transparent;
+      backdrop-filter: saturate(1.1) blur(10px);
+      z-index: 100;
     }
   }
 `

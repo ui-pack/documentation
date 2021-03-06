@@ -16,7 +16,7 @@ const Content = styled.main`
   height: 100vh;
   flex: 1 1 auto;
   transition: transform .5s var(--base-easing);
-  overflow-y: auto;
+  overflow: auto;
   .menu-nav &{
     transform: translateX(var(--mobile-nav-offset));
   }
@@ -31,7 +31,7 @@ const Article = styled.article`
   padding: 25px;
   margin: auto;
   max-width: 1000px;
-  h1, h2, h3, h4, h5, h6, p{
+  > h1, > h2, > h3, > h4, > h5, > h6, > p{
     margin: 12px 0;
   }
   @media screen and (min-width: 900px) {

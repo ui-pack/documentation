@@ -72,10 +72,10 @@ const ThirdPartyStyle = createGlobalStyle`
       right: -6px;
       width: 36px;
       height: 28px;
-      border: solid thin var(--color-gray-200);
+      border: solid thin hsl(var(--color-gray-200));
       border-radius: 4px;
       .dark &{
-        border: solid thin var(--color-gray-600);
+        border: solid thin hsl(var(--color-gray-600));
       }
     }
   }

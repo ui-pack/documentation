@@ -153,13 +153,13 @@ export default function Sidebar() {
           </Icon>
         </Button>
       </Header>
-      <Spacer axis="vertical" size={60} />
+      <Spacer axis="vertical" space="60" />
       <Navigation linkCount={pages.length}>
         {
           pages.map(page => (
             <Link href={`/docs/${page}`} aria-current={isCurrent(page)} key={page}>
               {icons[page]()}
-              <InlineSpacer axis="horizontal" size={8} />
+              <InlineSpacer axis="horizontal" space="8" />
               {_capitalize(page.replace('-', ' '))}
             </Link>
           ))

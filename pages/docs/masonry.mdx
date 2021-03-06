@@ -1,5 +1,5 @@
 import Documentation from '../../templates/documentation'
-import { Spacer } from '../../components/spacer'
+import Note from '../../components/note'
 
 <Documentation title="Masonry">
   
@@ -9,7 +9,8 @@ import { Spacer } from '../../components/spacer'
 Masonry is a grid layout that allows varying image dimensions with equal spacing. Unlike common grids,
 the rows are not confined to fixed heights. Simpler implementations of this layout like the
 [CSS multi-column layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns) flows on a
-column-by-column basis. However, this has a sinistrodextral flow (left-to-right) by rows.
+column-by-column basis. However, this has a sinistrodextral flow (left-to-right) by rows. The name
+masonry stems from the similarity of the layout to mason fitting stones.
 
 ## Usage
 
@@ -20,6 +21,14 @@ import Masonry from '@ui-pack/react/masonry'
 ```
 
 or you may import the component from the index module that contains all other components.
+
+```jsx
+import { Masonry } from '@ui-pack/react'
+```
+
+<Note type="info">
+This is not recommended in most cases as it can lead to larger bundle sizes
+</Note>
 
 ```jsx live=true
 function App(){
@@ -41,8 +50,5 @@ function App(){
   )
 }
 ```
-
-> Note this is not recommended in most cases as it can lead to larger bundle sizes
-
 
 </Documentation>

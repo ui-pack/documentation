@@ -49,7 +49,8 @@ export default function code({children, className = '', live, render}) {
           <LiveEditor
             style={{
               borderRadius: '0 0 var(--base-curve) var(--base-curve)',
-              padding: '20px'
+              padding: '10px',
+              fontSize: '1.6rem'
             }}
           />
           <LiveError />
@@ -60,9 +61,15 @@ export default function code({children, className = '', live, render}) {
 
   if (render) {
     return (
-      <div style={{marginTop: '40px'}}>
+      <div>
         <LiveProvider code={children}>
-          <LivePreview />
+          <LivePreview
+            style={{
+              borderRadius: 'var(--base-curve) var(--base-curve) 0 0',
+              padding: '20px',
+              border: 'solid thin var(--base-border-color)',
+            }}
+          />
         </LiveProvider>
       </div>
     )
@@ -71,7 +78,13 @@ export default function code({children, className = '', live, render}) {
   return (
     <Highlight {...defaultProps} code={children.trim()} language={language} theme={theme}>
       {({className, style, tokens, getLineProps, getTokenProps}) => (
-        <pre className={className} style={{...style, padding: '20px', borderRadius: 'var(--base-curve)', overflow: 'auto'}}>
+        <pre className={className} style={{
+          ...style,
+          padding: '20px',
+          borderRadius: 'var(--base-curve)',
+          overflow: 'auto',
+          fontSize: '1.6rem'
+        }}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({line, key: i})}>
               {line.map((token, key) => (
