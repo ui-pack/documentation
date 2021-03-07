@@ -2,9 +2,11 @@ import Head from 'next/head'
 import styled from 'styled-components'
 import Sidebar from '../components/sidebar'
 import Header from '../components/header'
-import { Logo } from '../components/brand'
 import VisuallyHidden from '../components/visually-hidden'
 import Link from '../components/link'
+import Icon from '../components/icon'
+import { Logo } from '../components/brand'
+import { InlineSpacer } from '../components/spacer'
 
 const Container = styled.div`
   @media screen and (min-width: 900px) {
@@ -82,6 +84,8 @@ const HamburgerButton = styled.button`
 `
 
 const Footer = styled.footer`
+  --icon-width: 14;
+  --icon-height: 14;
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -103,7 +107,8 @@ const formatDate = dateString => {
 
 export default function Documentation({
   title,
-  sourceLink = "https://github.com/ui-pack/documentation",
+  sourcePage = "",
+  author="",
   lastUpdated = "1965-03-01T00:00Z",
   children
 }) {
@@ -138,12 +143,21 @@ export default function Documentation({
            {children}
           </Article>
           <Footer>
-            <Link href={sourceLink}>Edit this page</Link>
+            <Link href={`https://github.com/ui-pack/documentation/blob/main/pages/docs/${sourcePage}`} rel="noopener noreferrer" target="_blank">
+            Edit this page
+            <InlineSpacer axis="horizontal" space="5" />
+            <Icon>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </Icon>
+            </Link>
             <span>
               <strong>Last updated: </strong>
               <time dateTime={lastUpdated}>
               {formatDate(lastUpdated)}
               </time>
+              {author && ` by ${author}`}
             </span>
           </Footer>
         </Content>

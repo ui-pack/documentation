@@ -4,9 +4,11 @@ import { MDXProvider } from '@mdx-js/react'
 import GlobalStyle from '../styles/globals'
 import ThirdPartyStyle from '../styles/third-party'
 import code from '../components/codeblock'
+import { h3 } from '../components/typography'
 
 const components = {
-  code
+  code,
+  h3,
 }
 
 function MyApp({ Component, pageProps }) {

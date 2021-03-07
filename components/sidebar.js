@@ -80,7 +80,7 @@ const Navigation = styled.nav`
   --icon-width: 18;
   --icon-height: 18;
   --link-color: var(--base-foreground-color);
-  --link-hover-color: var(--base-foreground-color);
+  --link-hover-color: inherit;
   flex: 1;
   font-size: 1.4rem;
   overflow: auto;
@@ -98,6 +98,7 @@ const Navigation = styled.nav`
 const Footer = styled.footer`
   --icon-width: 18;
   --icon-height: 18;
+  --link-color: hsl(var(--base-hue-saturation) 35%);
   display: flex;
   justify-content: space-between;
   padding: 15px 0;
@@ -107,9 +108,6 @@ const Footer = styled.footer`
     display: inline-grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
-  }
-  a{
-    color: hsl(var(--base-hue-saturation) 35%);
   }
   .dark &{
     border-top: solid thin hsl(var(--base-hue) 70% 20%);
@@ -164,8 +162,8 @@ export default function Sidebar() {
           <h5 id="gettingStarted">Getting started</h5>
           <Spacer axis="vertical" space="12" />
           <Stack gap="10px">
-            <Link href="/docs/principles">Guiding principle</Link>
-            <Link href="/docs/installation">Installation</Link>
+            <Link href="/docs/intro/introduction">Introduction</Link>
+            <Link href="/docs/intro/installation">Installation</Link>
           </Stack>
         </section>
         <Spacer axis="vertical" space="40" />
