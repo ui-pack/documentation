@@ -4,6 +4,7 @@ import _capitalize from 'lodash/capitalize'
 import Icon from './icon'
 import Link from './link'
 import Button from './button'
+import Stack from './stack'
 import { InlineSpacer, Spacer } from './spacer'
 import { Logo } from './brand'
 
@@ -78,15 +79,19 @@ const Header = styled.header`
 const Navigation = styled.nav`
   --icon-width: 18;
   --icon-height: 18;
+  --link-color: var(--base-foreground-color);
+  --link-hover-color: var(--base-foreground-color);
   flex: 1;
-  display: grid;
-  ${({ linkCount }) => linkCount && css`
-    grid-template-rows: repeat(${linkCount}, 30px);
-  `}
-  align-items: center;
-  gap: 20px;
+  font-size: 1.4rem;
+  overflow: auto;
   [aria-current]{
-    color: hsl(189deg 98% 30%);
+    color: hsl(189deg 25% 50%);
+    font-weight: 700;
+  }
+  h5{
+    color: hsl(var(--color-gray-400));
+    font-weight: 500;
+    font-size: 1.6rem;
   }
 `
 
@@ -154,29 +159,44 @@ export default function Sidebar() {
         </Button>
       </Header>
       <Spacer axis="vertical" space="60" />
-      <Navigation linkCount={pages.length}>
-        {
-          pages.map(page => (
-            <Link href={`/docs/${page}`} aria-current={isCurrent(page)} key={page}>
-              {icons[page]()}
-              <InlineSpacer axis="horizontal" space="8" />
-              {_capitalize(page.replace('-', ' '))}
-            </Link>
-          ))
-        }
+      <Navigation>
+        <section aria-labelledby="gettingStarted">
+          <h5 id="gettingStarted">Getting started</h5>
+          <Spacer axis="vertical" space="12" />
+          <Stack gap="10px">
+            <Link href="/docs/principles">Guiding principle</Link>
+            <Link href="/docs/installation">Installation</Link>
+          </Stack>
+        </section>
+        <Spacer axis="vertical" space="40" />
+        <section aria-labelledby="components">
+          <h5 id="components">Components</h5>
+          <Spacer axis="vertical" space="12" />
+          <Stack gap="10px">
+            {
+              pages.map(page => (
+                <Link href={`/docs/${page}`} aria-current={isCurrent(page)} key={page}>
+                  {icons[page]()}
+                  <InlineSpacer axis="horizontal" space="8" />
+                  {_capitalize(page.replace('-', ' '))}
+                </Link>
+              ))
+            }
+          </Stack>
+        </section>
       </Navigation>
       <Footer>
         <span>
-          <a href="https://github.com/ui-pack">
+          <Link href="https://github.com/ui-pack">
             <Icon>
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
             </Icon>
-          </a>
-          <a href="https://twitter.com/josephrexme">
+          </Link>
+          <Link href="https://twitter.com/josephrexme">
             <Icon>
               <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
             </Icon>
-          </a>
+          </Link>
         </span>
         <span>&copy; {new Date().getFullYear()}</span>
       </Footer>

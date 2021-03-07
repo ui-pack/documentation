@@ -8,13 +8,16 @@ const Toggle = styled.form`
   position: relative;
   width: 50px;
   height: 30px;
-  padding: 3px 5px;
-  border: solid thin hsl(var(--toggle-bg) 30%);
+  padding: 4px;
   border-radius: 30px;
   background-color: hsl(var(--toggle-bg) 30%);
   cursor: pointer;
   overflow: hidden;
+  outline: none;
   text-align: right;
+  &:focus-within{
+    box-shadow: 0 0 1px 2px var(--base-outline-color);
+  }
   label{
     position: absolute;
     top: 0;
@@ -24,8 +27,10 @@ const Toggle = styled.form`
     text-indent: 1000px;
     background-color: hsl(var(--toggle-bg) 30%);
     color: transparent;
+    border-radius: inherit;
+    outline: none;
+    border: 2px solid hsl(var(--toggle-bg) 30%);
     cursor: pointer;
-    border-radius: 30px;
   }
   input{
     position: absolute;
@@ -36,7 +41,7 @@ const Toggle = styled.form`
       background-color: hsl(var(--toggle-bg) 90%);
     }
     &:checked + label + span{
-      transform: translateX(-16px);
+      transform: translateX(-19px);
       background-color: hsl(var(--toggle-bg) 30%);
       &::after{
         opacity: 1;
@@ -120,8 +125,8 @@ export default function ColorSchemeToggle() {
         ` }} />
       </Head>
       <Toggle>
-        <input type="checkbox" id="toggler" defaultChecked={check} onInput={toggleColorScheme} />
-        <label htmlFor="toggler" title="Change theme">toggle</label>
+        <input type="checkbox" tabIndex="-1" id="toggler" defaultChecked={check} onInput={toggleColorScheme} />
+        <label htmlFor="toggler" tabIndex="0" title="Change theme">toggle</label>
         <span />
       </Toggle>
     </>

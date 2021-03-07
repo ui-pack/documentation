@@ -1,7 +1,11 @@
 import Documentation from '../../templates/documentation'
 import Note from '../../components/note'
 
-<Documentation title="Masonry">
+<Documentation
+  title="Masonry"
+  sourceLink="https://github.com/ui-pack/documentation/blob/main/pages/docs/masonry.mdx"
+  lastUpdated="2021-03-06T00:00"
+>
   
 
 # Masonry
@@ -26,8 +30,13 @@ or you may import the component from the index module that contains all other co
 import { Masonry } from '@ui-pack/react'
 ```
 
-<Note type="info">
-This is not recommended in most cases as it can lead to larger bundle sizes
+<Note type="warn">
+
+Using a member import like above can lead to larger bundle sizes. It is better to
+import directly from the smaller modules, using default style imports unless you
+use a bundler that transforms your code like
+[babel-plugin-transform-imports](https://www.npmjs.com/package/babel-plugin-transform-imports).
+
 </Note>
 
 ```jsx live=true
@@ -50,5 +59,9 @@ function App(){
   )
 }
 ```
+
+### Props
+
+### Notes
 
 </Documentation>

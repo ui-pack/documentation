@@ -4,6 +4,7 @@ import Sidebar from '../components/sidebar'
 import Header from '../components/header'
 import { Logo } from '../components/brand'
 import VisuallyHidden from '../components/visually-hidden'
+import Link from '../components/link'
 
 const Container = styled.div`
   @media screen and (min-width: 900px) {
@@ -80,7 +81,32 @@ const HamburgerButton = styled.button`
   }
 `
 
-export default function Documentation({ title, children }) {
+const Footer = styled.footer`
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 1000px;
+  padding: 25px 25px 60px;
+  @media screen and (min-width: 900px) {
+    padding: 25px 50px 60px;
+  }
+`
+
+const formatDate = dateString => {
+  return Intl.DateTimeFormat('en', {
+    year: 'numeric',
+    day: 'numeric',
+    month: 'long',
+    timeZone: 'America/Chicago'
+  }).format(new Date(dateString))
+}
+
+export default function Documentation({
+  title,
+  sourceLink = "https://github.com/ui-pack/documentation",
+  lastUpdated = "1965-03-01T00:00Z",
+  children
+}) {
   const toggleMenu = () => {
     document.body.classList.toggle('menu-nav')
   }
@@ -111,6 +137,15 @@ export default function Documentation({ title, children }) {
           <Article>
            {children}
           </Article>
+          <Footer>
+            <Link href={sourceLink}>Edit this page</Link>
+            <span>
+              <strong>Last updated: </strong>
+              <time dateTime={lastUpdated}>
+              {formatDate(lastUpdated)}
+              </time>
+            </span>
+          </Footer>
         </Content>
       </Container>
     </>

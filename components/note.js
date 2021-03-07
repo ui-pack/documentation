@@ -23,6 +23,13 @@ const NoteStyle = styled.div`
     text-transform: uppercase;
     font-size: 1.6rem;
   }
+  a{
+    color: inherit;
+    border-bottom: solid thin currentColor;
+    &:hover{
+      color: hsl(var(--color-gray-600));
+    }
+  }
 `
 
 const Indicator = styled.span`
