@@ -8,7 +8,7 @@ const Heading = styled.h3`
   a{
     position: absolute;
     top: 0;
-    left: -25px;
+    left: -20px;
     opacity: .4;
     transition: opacity .2s linear;
   }

@@ -37,6 +37,12 @@ const Article = styled.article`
   > h1, > h2, > h3, > h4, > h5, > h6, > p{
     margin: 12px 0;
   }
+  a{
+    color: var(--link-color, hsl(var(--base-hue-saturation) 40%));
+    &:hover{
+      color: var(--link-hover-color, hsl(var(--base-hue-saturation) 34%));
+    }
+  }
   @media screen and (min-width: 900px) {
     padding: 50px;
   }

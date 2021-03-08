@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
     --color-info: hsl(156deg 72% 67%);
     --color-warn: hsl(46deg 97% 65%);
     --color-error: hsl(0deg 94% 82%);
