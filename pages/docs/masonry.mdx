@@ -1,5 +1,6 @@
 import Documentation from '../../templates/documentation'
 import Note from '../../components/note'
+import PropList from '../../components/prop-list'
 
 <Documentation
   title="Masonry"
@@ -62,6 +63,34 @@ function App(){
 ```
 
 ### Props
+
+<PropList types={[
+  {
+    name: 'as',
+    default: 'div',
+    type: 'string | function',
+    description: 'Takes Component function or DOM element string the masonry will be rendered as'
+  },
+  {
+    name: 'gap',
+    default: '10px',
+    type: 'string',
+    description: 'The gap between grid items'
+  },
+  {
+    name: 'columns',
+    default: '3',
+    type: 'string | number',
+    description: 'Number of columns on each row',
+    required: true
+  },
+  {
+    name: 'children',
+    type: 'node',
+    description: 'Children nodes',
+    required: true
+  },
+]} />
 
 ### Notes
 

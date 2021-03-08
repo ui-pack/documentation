@@ -3,7 +3,8 @@ import theme from "prism-react-renderer/themes/nightOwl";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { mdx } from '@mdx-js/react'
 import styled from 'styled-components'
-import { transformSync } from '@babel/core'
+// import * as fs from 'fs';
+// import { transformSync } from '@babel/core'
 import Masonry from '@ui-pack/react/masonry'
 
 const Image = styled.img`
@@ -29,12 +30,13 @@ export default function code({children, className = '', live, render}) {
           theme={theme}
           disabled
           transformCode={code => {
-            const transformed = transformSync(code, {
-              plugins: [
-                require('@babel/plugin-syntax-jsx')
-              ]
-            }).code
-            return transformed
+            // const transformed = transformSync(code, {
+            //   plugins: [
+            //     require('@babel/plugin-syntax-jsx')
+            //   ]
+            // }).code
+            // return transformed
+            return code
           }}
           scope={scope}
         >
