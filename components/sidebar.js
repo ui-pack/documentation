@@ -162,7 +162,7 @@ export default function Sidebar() {
           <h5 id="gettingStarted">Getting started</h5>
           <Spacer axis="vertical" space="12" />
           <Stack gap="10px">
-            <Link href="/docs/intro/introduction">Introduction</Link>
+            <Link href="/docs/intro/principles">Principles</Link>
             <Link href="/docs/intro/installation">Installation</Link>
           </Stack>
         </section>
