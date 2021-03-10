@@ -18,7 +18,7 @@ const Heading = styled.h3`
 `
 
 export const h3 = ({ children }) => {
-  const id = children.toLowerCase()
+  const id = children.replace(/\s/g, '-').toLowerCase()
   return (
     <Heading id={id} as="h3">
       {children}
