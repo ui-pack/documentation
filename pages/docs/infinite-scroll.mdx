@@ -1,14 +1,104 @@
 import Documentation from '../../templates/documentation'
+import Note from '../../components/note'
+import PropList from '../../components/prop-list'
 
-<Documentation title="Infinite scroll">
+<Documentation
+  title="Infinite scroll"
+  author="Joseph Rex"
+  sourcePage="infinite-scroll.mdx"
+  lastUpdated="2021-03-10T22:00"
+>
   
 
 # Infinite scroll
 
-Masonry is a grid layout that allows varying image dimensions with equal spacing. Unlike common grids,
-the rows are not confined to fixed heights. Simpler implementations of this layout like the
-[CSS multi-column layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns) flows on a
-column-by-column basis. However, this has a sinistrodextral flow (left-to-right) by rows.
+Infinite scroll offers a frictionless pagination i.e an ability to scroll endlessly through
+multiple pages where succeeding pages get loaded into view as you scroll towards them.
+We might add the the necessary accessibility attributes into the component in the future but
+right now we can only recommend you use `role="feed"` and the links in the notes below
+especially when you use infinite scroll for a list of articles.
+
+### Usage
+```jsx
+import InfiniteScroll from '@ui-pack/react/infinite-scroll'
+```
+
+or you may import the component from the index module that contains all other components.
+
+```jsx
+import { InfiniteScroll } from '@ui-pack/react'
+```
+
+<Note type="warn">
+
+Using a member import like above can lead to larger bundle sizes. It is better to
+import directly from the smaller modules, using default style imports unless you
+use a bundler that transforms your code like
+[babel-plugin-transform-imports](https://www.npmjs.com/package/babel-plugin-transform-imports).
+
+</Note>
+
+```jsx live=true
+function App(){
+  const fetchImages = React.useCallback(page => {
+    console.log({ page })
+    return fetch(`https://picsum.photos/v2/list?page=${page}&limit=3`)
+    .then(res => res.json())
+  }, [])
+
+  return (
+    <Container>
+      <InfiniteScroll loadFunction={fetchImages}>
+        {item => 
+          <div key={item.id}>
+            <Image src={item.download_url} alt={item.author} />
+          </div>
+        }
+      </InfiniteScroll>
+    </Container>
+  )
+}
+```
+
+### Props
+
+<PropList types={[
+  {
+    name: 'as',
+    default: 'div',
+    type: 'string | function',
+    description: 'Takes Component function or DOM element string the masonry will be rendered as'
+  },
+  {
+    name: 'gap',
+    default: '10px',
+    type: 'string',
+    description: 'The gap between grid items'
+  },
+  {
+    name: 'columns',
+    default: '3',
+    type: 'string | number',
+    description: 'Number of columns on each row',
+    required: true
+  },
+  {
+    name: 'children',
+    type: 'node',
+    description: 'Children nodes',
+    required: true
+  },
+]} />
+
+
+### Notes
+- Various [articles][1] have pointed out [accessibility issues][2] with infinite scroll.
+- In order to enable infinite scroll for screen reader users, use `role=feed`. More [here][3] and [here][4]
 
 
 </Documentation>
+
+[1]: https://www.digitala11y.com/infinite-scroll-accessibility-is-it-any-good/
+[2]: https://www.deque.com/blog/infinite-scrolling-rolefeed-accessibility-issues/
+[3]: https://www.w3.org/TR/wai-aria-1.1/#feed
+[4]: https://www.w3.org/TR/wai-aria-practices-1.1/examples/feed/feed.html

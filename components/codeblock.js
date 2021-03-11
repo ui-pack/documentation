@@ -2,9 +2,8 @@ import * as React from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from "prism-react-renderer/themes/nightOwl";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import { mdx } from '@mdx-js/react'
 import styled, { css } from 'styled-components'
-import Masonry from '@ui-pack/react/masonry'
+import scope from './scope'
 
 const Tab = styled.button`
   padding: 1.2rem 2rem;
@@ -19,18 +18,6 @@ const Tab = styled.button`
     background: rgb(1 22 39);
   `}
 `
-
-const Image = styled.img`
-  display: block;
-  width: 100%;
-  border-radius: 4px;
-`
-
-const scope = {
-  mdx,
-  Masonry,
-  Image
-}
 
 export default function code({children, className = '', live, render, tabs}) {
   const language = className.replace(/language-/, '')
