@@ -15,7 +15,7 @@ const HeaderWrapper = styled.header`
     && {
       position: sticky;
       top: 0;
-      background: transparent;
+      background: hsl(var(--base-background-hsl) / .85);
       backdrop-filter: saturate(1.1) blur(10px);
       z-index: 100;
     }
