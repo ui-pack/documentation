@@ -1,4 +1,5 @@
 const frontmatterPlugin = require('./lib/frontmatter')
+const glob = require('./lib/glob')
 
 
 const withMDX = require('@next/mdx')({
@@ -9,5 +10,9 @@ const withMDX = require('@next/mdx')({
 })
 module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  target: 'serverless'
+  target: 'serverless',
+  env: {
+    components: glob('./pages/docs/*.mdx'),
+    name: 'joseph'
+  }
 })

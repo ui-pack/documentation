@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { mdx } from '@mdx-js/react'
 import Masonry from '@ui-pack/react/masonry'
 import InfiniteScroll from '@ui-pack/react/infinite-scroll'
+import AspectRatio from '@ui-pack/react/aspect-ratio'
 
 const Image = styled.img`
   display: block;
@@ -25,13 +26,17 @@ const Container = styled.div`
 const fetch = typeof window !== 'undefined' ? window.fetch : () => Promise.resolve({})
 
 const scope = {
-  React,
-  Masonry,
-  InfiniteScroll,
-  Image,
-  Container,
+  // libs
   mdx,
   fetch,
+  React,
+  // styles
+  Image,
+  Container,
+  // components
+  AspectRatio,
+  InfiniteScroll,
+  Masonry,
 }
 
 export default scope

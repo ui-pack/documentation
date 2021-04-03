@@ -132,7 +132,7 @@ export default function Documentation({
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#085462" />
         <meta name="msapplication-TileColor" content="#d5f9f9" />
         <meta name="theme-color" content="#ffffff" />
-        <meta name="supported-color-schemes" content="light dark" />
+        <meta name="color-scheme" content="light dark" />
         <meta name="description" content="Secondary UI components for frontend libraries like React" />
       </Head>
       <Container>
@@ -146,7 +146,8 @@ export default function Documentation({
           </PreHeader>
           <Header />
           <Article>
-           {children}
+            <h1>{title}</h1>
+            {children}
           </Article>
           <Footer>
             <Link href={`https://github.com/ui-pack/documentation/blob/main/pages/docs/${sourcePage}`} rel="noopener noreferrer" target="_blank">

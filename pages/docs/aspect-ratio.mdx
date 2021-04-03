@@ -1,0 +1,61 @@
+---
+title: Aspect Ratio
+author: Joseph Rex
+sourcePage: aspect-ratio.mdx
+lastUpdated: 2021-04-03T00:00
+---
+
+Aspect ratio allows usage of specified dimensions without a fixed height. The aspect ratio
+syntax is `HorizontalRatio:VerticalRatio`. For example, YouTube videos are in a `16:9`
+aspect ratio regardless of what the precise width may be.
+
+### Usage
+
+```jsx
+import AspectRatio from '@ui-pack/react/aspect-ratio'
+```
+
+```jsx live=true
+<div style={{ display: 'grid', gridAutoFlow: 'column', color: '#222' }}>
+  <AspectRatio width="200" ratio="16:9" style={{ background: '#bbb' }}>
+    Landscape - Youtube
+  </AspectRatio>
+  <AspectRatio as="img" width="200" ratio="1:1" src="https://picsum.photos/200" />
+  <AspectRatio width="200" ratio="8:10" style={{ background: '#bbb' }}>
+    Portrait
+  </AspectRatio>
+</div>
+```
+
+### Props
+
+<PropList types={[
+  {
+    name: 'as',
+    default: 'div',
+    type: 'string | function',
+    description: 'Takes Component function or DOM element string the masonry will be rendered as'
+  },
+  {
+    name: 'ratio',
+    default: '1:1',
+    type: 'string',
+    description: 'The aspect ratio to be used',
+    required: true,
+  },
+  {
+    name: 'width',
+    type: 'string | number',
+    description: 'Width value without unit',
+    required: true
+  },
+]} />
+
+### Notes
+
+- See [browser support][1] for CSS `aspect-ratio`
+- [Read][2] Una Kravets describing the `aspect-ratio` in CSS
+
+[1]: https://caniuse.com/?search=aspect-ratio
+[2]: https://web.dev/aspect-ratio/
+

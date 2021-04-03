@@ -82,6 +82,7 @@ export default function code({children, className = '', live, render, tabs}) {
           <LivePreview
             style={{
               borderRadius: 'var(--base-curve) var(--base-curve) 0 0',
+              marginTop: 12,
               padding: '20px',
               border: 'solid thin var(--base-border-color)',
               borderBottom: 0
@@ -90,6 +91,7 @@ export default function code({children, className = '', live, render, tabs}) {
           <LiveEditor
             style={{
               borderRadius: '0 0 var(--base-curve) var(--base-curve)',
+              marginBottom: 12,
               padding: '10px',
               fontSize: '1.6rem'
             }}
@@ -107,6 +109,7 @@ export default function code({children, className = '', live, render, tabs}) {
           <LivePreview
             style={{
               borderRadius: 'var(--base-curve) var(--base-curve) 0 0',
+              margin: '12px 0',
               padding: '20px',
               border: 'solid thin var(--base-border-color)',
             }}
@@ -121,6 +124,7 @@ export default function code({children, className = '', live, render, tabs}) {
       {({className, style, tokens, getLineProps, getTokenProps}) => (
         <pre className={className} style={{
           ...style,
+          margin: '12px 0',
           padding: '20px',
           borderRadius: 'var(--base-curve)',
           overflow: 'auto',
