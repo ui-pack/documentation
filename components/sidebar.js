@@ -145,8 +145,13 @@ export default function Sidebar() {
           <h5 id="gettingStarted">Getting started</h5>
           <Spacer axis="vertical" space="12" />
           <Stack gap="10px">
-            <Link href="/docs/intro/principles">Principles</Link>
-            <Link href="/docs/intro/installation">Installation</Link>
+            {
+              process.env.intros.map(page => (
+                <Link href={`/docs/intro/${page}`} aria-current={isCurrent(page)} key={page}>
+                  {humanize(page)}
+                </Link>
+              ))
+            }
           </Stack>
         </section>
         <Spacer axis="vertical" space="40" />

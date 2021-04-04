@@ -13,6 +13,6 @@ module.exports = withMDX({
   target: 'serverless',
   env: {
     components: glob('./pages/docs/*.mdx'),
-    name: 'joseph'
+    intros: glob('./pages/docs/intro/*.mdx')
   }
 })
