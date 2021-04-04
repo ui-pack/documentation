@@ -17,21 +17,6 @@ masonry stems from the similarity of the layout to mason fitting stones.
 import Masonry from '@ui-pack/react/masonry'
 ```
 
-or you may import the component from the index module that contains all other components.
-
-```jsx
-import { Masonry } from '@ui-pack/react'
-```
-
-<Note type="warn">
-
-Using a member import like above can lead to larger bundle sizes. It is better to
-import directly from the smaller modules, using default style imports unless you
-use a bundler that transforms your code like
-[babel-plugin-transform-imports](https://www.npmjs.com/package/babel-plugin-transform-imports).
-
-</Note>
-
 ```jsx live=true
 function App(){
   const items = [

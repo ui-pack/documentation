@@ -17,6 +17,21 @@ const Heading = styled.h3`
   }
 `
 
+export const h2 = ({ children }) => {
+  const id = children.replace(/\s/g, '-').toLowerCase()
+  return (
+    <Heading id={id} as="h2">
+      {children}
+      <a aria-hidden="true" href={`#${id}`}>
+        <Icon>
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </Icon>
+      </a>
+    </Heading>
+  )
+}
+
 export const h3 = ({ children }) => {
   const id = children.replace(/\s/g, '-').toLowerCase()
   return (

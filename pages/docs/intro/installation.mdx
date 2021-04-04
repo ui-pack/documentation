@@ -7,19 +7,41 @@ lastUpdated: 2021-03-10T20:20
 
 Start by installing ui-pack with your package manager of choice
 
-### React
+## React
 ```bash tabs='npm|yarn'
 npm i @ui-pack/react
 --
 yarn add @ui-pack/react
 ```
 
-### Script
+### Importing
+You may import from the default export of each component
+```jsx
+import Masonry from '@ui-pack/react/masonry'
+```
+
+or import the component from the index module that contains all other components.
+
+```jsx
+import { Masonry } from '@ui-pack/react'
+```
+
+<Note type="warn">
+
+Using a member import like above can lead to larger bundle sizes as it loads all components,
+including the ones you may not be using. It is often better to import directly from the
+smaller modules, using default style imports unless you use a bundler that transforms your
+code like [babel-plugin-transform-imports](https://www.npmjs.com/package/babel-plugin-transform-imports)
+or choose to rely on tree-shaking (which can be a hit or miss).
+
+</Note>
+
+## Script
 ```html
 <script src="https://unpkg.com/@ui-pack/react@0.0.5/index.js"></script>
 ```
 
-### Styling
+## Styling
 With ui-pack you do not need to worry about any additional steps to add styles to your components
 as basic styles are injected in the page. As a component library that's focused on UI implementation
 but not heavily opinionated on appearance, the default styles can be overriden easily.

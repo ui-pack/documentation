@@ -16,21 +16,6 @@ especially when you use infinite scroll for a list of articles.
 import InfiniteScroll from '@ui-pack/react/infinite-scroll'
 ```
 
-or you may import the component from the index module that contains all other components.
-
-```jsx
-import { InfiniteScroll } from '@ui-pack/react'
-```
-
-<Note type="warn">
-
-Using a member import like above can lead to larger bundle sizes. It is better to
-import directly from the smaller modules, using default style imports unless you
-use a bundler that transforms your code like
-[babel-plugin-transform-imports](https://www.npmjs.com/package/babel-plugin-transform-imports).
-
-</Note>
-
 ```jsx live=true
 function App(){
   const fetchImages = React.useCallback(page => {
@@ -69,22 +54,20 @@ function App(){
     description: 'Takes Component function or DOM element string the masonry will be rendered as'
   },
   {
-    name: 'gap',
-    default: '10px',
-    type: 'string',
-    description: 'The gap between grid items'
+    name: 'loadFunction',
+    type: 'function',
+    description: 'Function to load pages'
   },
   {
-    name: 'columns',
-    default: '3',
+    name: 'pageLimit',
+    default: '',
     type: 'string | number',
-    description: 'Number of columns on each row',
-    required: true
+    description: 'The total number of pages the infinite scroll opens'
   },
   {
     name: 'children',
-    type: 'node',
-    description: 'Children nodes',
+    type: 'function',
+    description: 'Callback function that maps items to be in the infinite scroll',
     required: true
   },
 ]} />

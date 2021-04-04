@@ -76,15 +76,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2{
-    font-size: 3.6rem;
+    font-size: 3.2rem;
   }
 
   h3{
-    font-size: 3.0rem;
+    font-size: 2.4rem;
   }
 
   h4{
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
 
   h5{
