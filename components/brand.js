@@ -5,16 +5,22 @@ const LogoStyle = styled.h1`
   display: inline-block;
   width: 120px;
   height: 34px;
-  padding-left: 35px;
+  padding-left: 30px;
   margin-left: -5px;
-  background-image: url(/ui-pack-named.svg);
-  background-size: 100%;
+  background-image: url(/ui-pack.svg);
+  background-size: 26px;
+  background-position: left bottom;
   background-repeat: no-repeat;
-  color: var(--base-foreground-color);
+  color: #1f6e7c;
   fill: #f00;
-  font-size: 2.0rem;
+  font-size: 2.6rem;
+  line-height: 1.8;
+  text-transform: uppercase;
+  span{
+    font-weight: 300;
+  }
 `
 
 export const Logo = () => (
-  <LogoStyle>ui-pack</LogoStyle>
+  <LogoStyle><span>ui</span>pack</LogoStyle>
 )

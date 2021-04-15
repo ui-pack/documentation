@@ -129,9 +129,10 @@ export default function Documentation({
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#085462" />
-        <meta name="msapplication-TileColor" content="#d5f9f9" />
-        <meta name="theme-color" content="#ffffff" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1f6e7c" />
+        <meta name="msapplication-TileColor" content="#1f6e7c" />
+        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+        <meta name="theme-color" content="#4da9ba" />
         <meta name="color-scheme" content="light dark" />
         <meta name="description" content="Secondary UI components for frontend libraries like React" />
       </Head>
