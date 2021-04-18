@@ -10,9 +10,21 @@ const Section = styled.section`
   }
 `
 
+const humanizeType = type => {
+  switch (type) {
+    case 'func':
+      return 'function'
+    case 'bool':
+      return 'boolean'
+    default:
+      return type
+  }
+}
+
 const getType = typeObject => {
-  if(!typeObject.type.name) return typeObject.type
-  return `${typeObject.type.name}: ${typeObject.type.params.join(', ')}`
+  if(!typeObject.type.name) return humanizeType(typeObject.type)
+  const withHumanized = typeObject.type.params.map(it => humanizeType(it))
+  return `${typeObject.type.name}: ${withHumanized.join(', ')}`
 }
 
 /* TODO
