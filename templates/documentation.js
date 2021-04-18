@@ -1,12 +1,16 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import Sidebar from '../components/sidebar'
-import Header from '../components/header'
-import VisuallyHidden from '../components/visually-hidden'
-import Link from '../components/link'
-import Icon from '../components/icon'
-import { Logo } from '../components/brand'
-import { InlineSpacer } from '../components/spacer'
+import _camelCase from 'lodash/camelCase'
+import * as UI from '@ui-pack/react'
+import Sidebar from 'components/sidebar'
+import Header from 'components/header'
+import VisuallyHidden from 'components/visually-hidden'
+import Link from 'components/link'
+import Icon from 'components/icon'
+import PropList from 'components/prop-list'
+import { Heading } from 'components/typography'
+import { Logo } from 'components/brand'
+import { InlineSpacer } from 'components/spacer'
 
 const Container = styled.div`
   @media screen and (min-width: 900px) {
@@ -111,6 +115,13 @@ const formatDate = dateString => {
   }).format(new Date(dateString))
 }
 
+const toComponentName = file => {
+  const match = file.match(/^[\w-]+(?=\.mdx?)/)
+  if (!match) return ""
+  const componentName = _camelCase(match[0])
+  return `${componentName.charAt(0).toUpperCase()}${componentName.substr(1)}`
+}
+
 export default function Documentation({
   title,
   sourcePage = "",
@@ -118,6 +129,7 @@ export default function Documentation({
   lastUpdated = "1965-03-01T00:00Z",
   children
 }) {
+  const component = toComponentName(sourcePage)
   const toggleMenu = () => {
     document.body.classList.toggle('menu-nav')
   }
@@ -149,6 +161,22 @@ export default function Documentation({
           <Article>
             <h1>{title}</h1>
             {children}
+            {
+              UI.hasOwnProperty(component) && (
+                <>
+                  <Heading as="h2" id="props">
+                    Props
+                    <a aria-hidden="true" href="#props">
+                      <Icon>
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                      </Icon>
+                    </a>
+                  </Heading>
+                  <PropList source={UI[component]} />
+                </>
+              )
+            }
           </Article>
           <Footer>
             <Link href={`https://github.com/ui-pack/documentation/blob/main/pages/docs/${sourcePage}`} rel="noopener noreferrer" target="_blank">

@@ -10,24 +10,34 @@ const Section = styled.section`
   }
 `
 
-export default function PropList({ types }) {
+const getType = typeObject => {
+  if(!typeObject.type.name) return typeObject.type
+  return `${typeObject.type.name}: ${typeObject.type.params.join(', ')}`
+}
+
+/* TODO
+ Turn source to a string that can be parsed
+*/
+export default function PropList({ source }) {
+  if(!source) return null
+  const types = Object.keys(source.types)
   return (
     <Stack gap="15px">
-      {types.map(prop => (
-        <Section key={prop.name}>
+      {types.map(propType => (
+        <Section key={propType}>
           <Stack gap="12px">
-          <h6>{prop.name}</h6>
+          <h6>{propType}</h6>
           <p>
-            <Tag>{prop.type}</Tag>
+            <Tag>{getType(source.types[propType])}</Tag>
             <InlineSpacer axis="horizontal" space="10" />
-            {prop.required && <Tag>required</Tag>}
+            {source.types[propType].required && <Tag>required</Tag>}
           </p>
           {
-            prop.default && (
-              <p><strong>Default:</strong> {prop.default}</p>
+            source.types[propType].default && (
+              <p><strong>Default:</strong> {source.types[propType].default}</p>
             )
           }
-          <p>{prop.description}</p>
+          <p>{source.types[propType].description}</p>
           </Stack>
         </Section>
       ))}

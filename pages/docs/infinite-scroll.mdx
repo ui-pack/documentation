@@ -44,35 +44,6 @@ function App(){
 }
 ```
 
-## Props
-
-<PropList types={[
-  {
-    name: 'as',
-    default: 'div',
-    type: 'string | function',
-    description: 'Takes Component function or DOM element string the masonry will be rendered as'
-  },
-  {
-    name: 'loadFunction',
-    type: 'function',
-    description: 'Function to load pages'
-  },
-  {
-    name: 'pageLimit',
-    default: '',
-    type: 'string | number',
-    description: 'The total number of pages the infinite scroll opens'
-  },
-  {
-    name: 'children',
-    type: 'function',
-    description: 'Callback function that maps items to be in the infinite scroll',
-    required: true
-  },
-]} />
-
-
 ## Notes
 - Various [articles][1] have pointed out [accessibility issues][2] with infinite scroll.
 - In order to enable infinite scroll for screen reader users, use `role=feed`. More [here][3] and [here][4]

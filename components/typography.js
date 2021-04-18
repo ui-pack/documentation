@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Icon from './icon'
 
-const Heading = styled.h3`
+export const Heading = styled.h3`
   --icon-width: 16;
   --icon-height: 16;
   position: relative;
