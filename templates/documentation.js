@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import styled from 'styled-components'
 import _camelCase from 'lodash/camelCase'
 import * as UI from '@ui-pack/react'
+import axios from 'axios'
 import Sidebar from 'components/sidebar'
 import Header from 'components/header'
 import VisuallyHidden from 'components/visually-hidden'
@@ -11,6 +13,14 @@ import PropList from 'components/prop-list'
 import { Heading } from 'components/typography'
 import { Logo } from 'components/brand'
 import { InlineSpacer } from 'components/spacer'
+
+const REPO = 'ui-pack/documentation'
+
+const getLastAuthorInfo = async (repo, filePath) => {
+  const response = await axios.get(`https://api.github.com/repos/${repo}/commits?path=${filePath}&page=1&per_page=1`)
+  console.log(response)
+  return response.data[0].commit.author
+}
 
 const Container = styled.div`
   @media screen and (min-width: 900px) {
@@ -126,13 +136,20 @@ export default function Documentation({
   title,
   sourcePage = "",
   author="",
-  lastUpdated = "1965-03-01T00:00Z",
   children
 }) {
+  const [lastUpdate, setLastUpdate] = useState({})
   const component = toComponentName(sourcePage)
   const toggleMenu = () => {
     document.body.classList.toggle('menu-nav')
   }
+
+  useEffect(() => {
+    getLastAuthorInfo(REPO, `pages/docs/${sourcePage}`).then(res => {
+      setLastUpdate(res)
+    })
+  }, [])
+
   return (
     <>
       <Head>
@@ -190,10 +207,10 @@ export default function Documentation({
             </Link>
             <span>
               <strong>Last updated: </strong>
-              <time dateTime={lastUpdated}>
-              {formatDate(lastUpdated)}
+              <time dateTime={lastUpdate.date}>
+              {lastUpdate.date && formatDate(lastUpdate.date)}
               </time>
-              {author && ` by ${author}`}
+              {" "}by {author || lastUpdate.name}
             </span>
           </Footer>
         </Content>
